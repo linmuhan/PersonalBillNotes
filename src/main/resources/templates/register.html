@@ -2,16 +2,16 @@
 <html lang="ch" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>登录我的账单</title>
+    <title>注册我的账单</title>
     <link th:href="@{/css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/layui/css/layui.css}" rel="stylesheet">
-    <link th:href="@{/css/temp/login.css}" rel="stylesheet">
+    <link th:href="@{/css/temp/registered.css}" rel="stylesheet">
 </head>
 
 <body th:background="@{img/back.jpg}" style="background-repeat: no-repeat;background-size: 100%">
 <div id="wordArea">
-    <div id="login_box">
-        <h1>Login</h1>
+    <div id="register_box">
+        <h1>Register</h1>
         <div class="form">
             <div class="item">
                 <i class="layui-icon layui-icon-username"></i>
@@ -21,10 +21,14 @@
                 <i class="layui-icon layui-icon-password"></i>
                 <input placeholder="密码" id="password" type="password">
             </div>
+            <div class="item">
+                <i class="layui-icon layui-icon-password"></i>
+                <input placeholder="确认密码" id="surePassword" type="password">
+            </div>
         </div>
-        <button id="loginButton">Login</button>
-        <div id="toRegistered">
-            <a th:href="@{/register}">还没注册？立即注册</a>
+        <button id="registerButton">Register</button>
+        <div id="toLogin">
+            <a th:href="@{/login}">前去登录</a>
         </div>
     </div>
 </div>

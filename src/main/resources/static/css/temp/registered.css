@@ -1,0 +1,51 @@
+#register_box {
+    width: 30%;
+    height: 350px;
+    margin: 0px auto;
+    margin-top: 10%;
+    text-align: center;
+    background: #00000090;
+    padding: 20px 50px;
+}
+#register_box h1{
+    margin-top: 20px;
+    color: #fff;
+}
+#register_box .form{
+    margin-top: 35px;
+}
+#register_box .form .item{
+    margin-top: 15px;
+}
+#register_box .form .item input{
+    border: 0;
+    font-size: 14px;
+    width: 180px;
+    border-bottom: 2px solid #fff;
+    padding: 5px 10px;
+    background: #ffffff00;
+    color: #fff;
+}
+#register_box .form .item i{
+    font-size: 14px;
+    color: #fff;
+}
+#register_box #registerButton{
+    margin-top: 30px;
+    width: 180px;
+    height: 30px;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    border:0;
+    border-radius: 15px;
+}
+#register_box #toLogin{
+    margin-top: 20px;
+}
+#register_box #toLogin a{
+    color: #fff;
+}
+#register_box #toLogin a:hover{
+    color: #82d7da;
+    text-decoration: none;
+}

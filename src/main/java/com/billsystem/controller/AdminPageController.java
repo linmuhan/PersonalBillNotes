@@ -15,4 +15,7 @@ public class AdminPageController {
     public String toIndex(){
         return "index";
     }
+
+    @GetMapping("/register")
+    public String toRegiter() { return "register"; }
 }
