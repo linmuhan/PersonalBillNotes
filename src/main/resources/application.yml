@@ -1,14 +1,13 @@
 server:
   port: 80
-#spirng:
-#  datasource:
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://127.0.0.1:3306/billsystem?characterEncoding=UTF-8
-#    username: root
-#    password: 123456
-#    dbcp2:
-#      min-idle: 5
-#      initial-size: 5
-#      max-total: 5
-#      max-wait-millis: 150
+spring:
+  datasource:
+    data-username: root
+    data-password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/billsystem?characterEncoding=UTF-8
+    type: com.alibaba.druid.pool.DruidDataSource
+#ÕûºÏmybatis
+mybatis:
+  type-aliases-package: com.billsystem.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml

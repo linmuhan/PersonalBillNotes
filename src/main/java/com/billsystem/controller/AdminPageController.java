@@ -17,5 +17,5 @@ public class AdminPageController {
     }
 
     @GetMapping("/register")
-    public String toRegiter() { return "register"; }
+    public String toRegister() { return "register"; }
 }
