@@ -1,4 +1,4 @@
-package com.util;
+package com.billsystem.util;
 
 public class Result {
     public static int SUCCESS_CODE = 0;

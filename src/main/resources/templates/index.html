@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>MyBillSystem</title>
+    <link th:href="@{/css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/layui/css/layui.css}" rel="stylesheet">
+    <link th:href="@{/css/temp/index.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery/2.0.0/jquery.min.js}"></script>
+    <script th:src="@{/js/vue/2.5.16/vue.min.js}"></script>
+    <script th:src="@{/js/axios/0.17.1/axios.min.js}"></script>
+    <script th:src="@{/js/temp/index.js}"></script>
+    <script th:src="@{/js/layui/layui.js}"></script>
 </head>
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //一些事件监听
+        element.on('tab(demo)', function(data){
+            console.log(data);
+        });
+    });
+</script>
 <body>
-    个人账单系统
+    <div id="workArea">
+        <div id="nav">
+            <div class="layui-tab layui-tab-brief" lay-filter="demo" id="tab">
+                <ul class="layui-tab-title">
+                    <li  class="layui-this">消费一览</li>
+                    <li>记一笔</li>
+                    <li>消费分类</li>
+                    <li>月消费账单</li>
+                </ul>
+                <span id="welcome">尊敬的用户{{user.name}},欢迎您！</span>
+                <span id="quit">退出登录</span>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">内容1</div>
+                    <div class="layui-tab-item">内容2</div>
+                    <div class="layui-tab-item">内容3</div>
+                    <div class="layui-tab-item">内容4</div>
+                    <div class="layui-tab-item">内容5</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

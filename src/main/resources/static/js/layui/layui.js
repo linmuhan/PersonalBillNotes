@@ -65,7 +65,7 @@
     ,slider: 'modules/slider' //滑块
     ,carousel: 'modules/carousel' //轮播
     ,flow: 'modules/flow' //流加载
-    ,util: 'modules/util' //工具块
+    ,util: 'modules/utils' //工具块
     ,code: 'modules/code' //代码修饰器
     ,jquery: 'modules/jquery' //DOM库（第三方）
     

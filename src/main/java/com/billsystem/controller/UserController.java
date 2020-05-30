@@ -2,7 +2,7 @@ package com.billsystem.controller;
 
 import com.billsystem.pojo.User;
 import com.billsystem.service.UserService;
-import com.util.Result;
+import com.billsystem.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,0 +1,16 @@
+#nav #tab #welcome{
+    position: absolute;
+    right: 150px;
+    top : 18px;
+    font-size: 14px;
+}
+#nav #tab #quit{
+    position: absolute;
+    right: 10px;
+    top : 18px;
+    font-size: 14px;
+}
+#nav #tab #quit:hover{
+    color: #FF0000;
+    cursor:pointer
+}

@@ -1,6 +1,5 @@
 package com.billsystem.interceptor;
 
-import com.alibaba.druid.sql.visitor.functions.Char;
 import com.billsystem.pojo.User;
 import com.billsystem.service.UserService;
 import org.apache.commons.lang.StringUtils;
@@ -36,8 +35,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         if(begingWith(page, requireAuthPages)){
             //System.out.println(page);
             int id = getLastUrlId(page);
+            //System.out.println(id);
             User user = userService.queryUserById(id);
-            if(session.getAttribute(user.getName()) != null){
+            if(user != null && session.getAttribute(user.getName()) != null){
                 return true;
             }else{
                 response.sendRedirect("/login");
