@@ -7,7 +7,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/billsystem?characterEncoding=UTF-8
     type: com.alibaba.druid.pool.DruidDataSource
-#ÕûºÏmybatis
 mybatis:
   type-aliases-package: com.billsystem.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml

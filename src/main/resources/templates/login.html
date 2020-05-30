@@ -6,23 +6,26 @@
     <link th:href="@{/css/bootstrap/3.3.6/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/layui/css/layui.css}" rel="stylesheet">
     <link th:href="@{/css/temp/login.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery/2.0.0/jquery.min.js}"></script>
+    <script th:src="@{/js/vue/2.5.16/vue.min.js}"></script>
+    <script th:src="@{/js/axios/0.17.1/axios.min.js}"></script>
+    <script th:src="@{/js/temp/login.js}"></script>
 </head>
-
 <body th:background="@{img/back.jpg}" style="background-repeat: no-repeat;background-size: 100%">
-<div id="wordArea">
+<div id="workArea">
     <div id="login_box">
         <h1>Login</h1>
         <div class="form">
             <div class="item">
                 <i class="layui-icon layui-icon-username"></i>
-                <input placeholder="用户名" id="userName" type="text">
+                <input placeholder="用户名" v-model="user.name" type="text">
             </div>
             <div class="item">
                 <i class="layui-icon layui-icon-password"></i>
-                <input placeholder="密码" id="password" type="password">
+                <input placeholder="密码" v-model="user.password" type="password">
             </div>
         </div>
-        <button id="loginButton">Login</button>
+        <button id="loginButton" @click="login">Login</button>
         <div id="toRegistered">
             <a th:href="@{/register}">还没注册？立即注册</a>
         </div>
