@@ -7,6 +7,22 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/billsystem?characterEncoding=UTF-8
     type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 2
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    useGlobalDataSourceStat: true
+    name: bs
 mybatis:
   type-aliases-package: com.billsystem.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml

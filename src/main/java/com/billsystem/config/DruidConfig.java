@@ -20,20 +20,22 @@ public class DruidConfig {
         return new DruidDataSource();
     }
 
-    //åå°ç›‘æ§
+    //ºóÌ¨¼à¿Ø
     @Bean
     public ServletRegistrationBean toBean(){
         ServletRegistrationBean<StatViewServlet> bean = new ServletRegistrationBean<>(new StatViewServlet(),"/druid/*");
 
-        //é…ç½®åå°è´¦å·å¯†ç 
+        //ÅäÖÃºóÌ¨ÕËºÅÃÜÂë
         Map<String,String> map = new HashMap<>();
         map.put("loginUsername","admin");
         map.put("loginPassword","123456");
+        //ÔÊĞíÊ²Ã´¿ÉÒÔ½øÈë
         map.put("allow","");
-        //è®¾ç½®åˆå§‹åŒ–å‚æ•°
+        //ÅäÖÃ²»¿ÉÒÔ½øÈë
+        map.put("deny","192.168.0.1");
+        //ÉèÖÃ³õÊ¼»¯²ÎÊı
         bean.setInitParameters(map);
         return bean;
-
     }
 
 }
