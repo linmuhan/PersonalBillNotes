@@ -14,3 +14,33 @@
     color: #FF0000;
     cursor:pointer
 }
+div#panel5{
+    width: 40%;
+    height: 300px;
+    margin: 0px auto;
+    margin-top: 100px;
+}
+div#panel5 div.panel-body{
+    margin-left: 70px;
+    margin-top: 70px;
+}
+div#panel5 div.panel-body input{
+    width: 70%;
+    display: inline-block;
+}
+div.layui-tab-item #timeline{
+    margin-left: 30%;
+}
+div#panel2{
+    width: 40%;
+    height: 400px;
+    margin: 0px auto;
+    margin-top: 100px;
+}
+div#panel2 div.panel-body input{
+    margin-top: 20px;
+}
+div#panel2 div.panel-body button{
+    margin-top: 50px;
+    margin-left: 45%;
+}
