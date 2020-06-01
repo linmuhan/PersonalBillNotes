@@ -17,6 +17,9 @@
         <div id='addInfo' style = "display : none">
             <input placeholder="分类名称" v-model="addOfCategory.name" class="layui-input" style="margin: 30px auto; width: 200px" type="text">
         </div>
+        <div id="deleteInfo" style="display: none">
+            <h3>您确认要删除该条分类吗？</h3>
+        </div>
         <div id="nav">
             <div class="layui-tab layui-tab-brief" lay-filter="demo" id="tab">
                 <ul class="layui-tab-title">
@@ -59,7 +62,7 @@
                                 <td>
                                     <div class="layui-btn-group">
                                         <button type="button" class="layui-btn">编辑</button>
-                                        <button type="button" class="layui-btn layui-btn-danger" @click="deleteCategory">删除</button>
+                                        <button type="button" class="layui-btn layui-btn-danger" @click="deleteCategory(category.id)">删除</button>
                                     </div>
                                 </td>
                             </tr>

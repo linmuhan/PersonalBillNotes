@@ -12,8 +12,8 @@
         insert into category (id,name,uid) values (#{id},#{name},#{uid})
     </insert>
 
-    <delete id="delete" parameterType="Category">
-        delete from category where name = #{name} and uid = #{uid}
+    <delete id="deleteCategory" parameterType="Category">
+        delete from category where id = #{id} and uid = #{uid}
     </delete>
 
     <select id="queryCategoryByName" parameterType="String">

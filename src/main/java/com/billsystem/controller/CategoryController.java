@@ -37,4 +37,15 @@ public class CategoryController {
         }
     }
 
+    @PostMapping("/deleteCategory")
+    public Object deleteCategory(@RequestBody Category category){
+        try{
+            categoryService.deleteCategory(category);
+            return Result.success();
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.fail("error");
+        }
+    }
+
 }
