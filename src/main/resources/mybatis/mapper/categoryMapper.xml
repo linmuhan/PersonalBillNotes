@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.billsystem.mapper.CategoryMapper">
+
+    <select id="queryListByUid" resultType="Category">
+        select * from category where uid = #{uid}
+    </select>
+
+    <insert id="addCategory" parameterType="Category">
+        insert into category (id,name,uid) values (#{id},#{name},#{uid})
+    </insert>
+
+    <delete id="delete" parameterType="Category">
+        delete from category where name = #{name} and uid = #{uid}
+    </delete>
+
+    <select id="queryCategoryByName" parameterType="String">
+        select * from category where name = #{name};
+    </select>
+
+    <update id="updateCategory" parameterType="Category">
+        update category set name = #{name} where id = #{id} and uid = #{uid};
+    </update>
+
+</mapper>
