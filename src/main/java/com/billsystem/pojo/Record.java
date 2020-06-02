@@ -18,5 +18,6 @@ public class Record {
     private String spend;
     private String comment;
     private Date date;
+    private int uid;
 
 }

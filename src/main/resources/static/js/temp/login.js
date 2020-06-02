@@ -12,10 +12,10 @@ $(function () {
        methods:{
            login:function () {
                if(0 == this.user.name.length){
-                   alert("账号不能为空！请输入账号。");
+                   layer.msg("账号不能为空！请输入账号。");
                    return;
                }else if(0 == this.user.password.length){
-                   alert("密码不能为空！请输入账号。");
+                   layer.msg("密码不能为空！请输入密码。");
                }else{
                    var url = this.uri;
                    axios.post(url,vue.user).then(function (value) {
@@ -23,14 +23,18 @@ $(function () {
                        if(data.code == 0){
                            location.href = 'index/'+data.data;
                        }else if(data == 'noExist'){
-                           alert("账号不存在，请重试！");
+                           layer.msg("账号不存在，请重试！");
                        }else if(data == 'error'){
-                           alert("登录错误，请重试！");
+                           layer.msg("登录错误，请重试！");
                        }
                    })
                }
            }
        }
-   })
+   });
+
+    layui.use('layer', function(){
+        var layer = layui.layer;
+    });
 
 });

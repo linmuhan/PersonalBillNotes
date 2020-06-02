@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.billsystem.mapper.RecordMapper">
+
+    <insert id="addRecord" parameterType="Record">
+        insert into
+        record
+        (id,spend,cid,comment,date,uid)
+        values (#{id},#{spend},#{cid},#{comment},#{date},#{uid})
+    </insert>
+
+    <delete id="deleteRecord" parameterType="int">
+        delete from record
+        where id = #{id}
+    </delete>
+
+    <update id="updateRecord" parameterType="Record">
+        update record set
+        spend = #{spend} ,
+        comment = #{comment} ,
+        date = #{date}
+        where id = #{id}
+    </update>
+
+    <select id="queryRecord" resultType="Record">
+        select * form record where id = #{id}
+    </select>
+
+    <select id="queryRecordList" resultType="Record">
+        select * form record where uid = #{uid}
+    </select>
+
+    <select id="queryRecordToday" resultType="Record">
+        select * from record where date = #{date} and uid = #{uid}
+    </select>
+
+    <select id="queryRecordThisMonth" resultType="Record">
+        select * from
+        (select * from record where date >= #{start} and date &lt;= #{end})
+        where uid = #{uid}
+    </select>
+
+</mapper>

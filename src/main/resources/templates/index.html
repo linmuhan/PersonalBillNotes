@@ -43,7 +43,7 @@
                     <div class="panel panel-info" id="panel2">
                         <div class="panel-heading">人生得过且过,每一笔都不能记错！</div>
                         <div class="panel-body">
-                            <form class="layui-form" action="">
+                            <div class="layui-form" action="" lay-filter="formTest">
                                 <div class="layui-form-item">
                                     <label class="layui-form-label">花费</label>
                                     <div class="layui-input-block">
@@ -53,13 +53,9 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label">分类</label>
                                     <div class="layui-input-block">
-                                        <select name="city" lay-verify="required">
+                                        <select v-model="selected" lay-verify="required">
                                             <option value=""></option>
-                                            <option value="0">北京</option>
-                                            <option value="1">上海</option>
-                                            <option value="2">广州</option>
-                                            <option value="3">深圳</option>
-                                            <option value="4">杭州</option>
+                                            <option v-for="category in categories" value="category.id">{{category.name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -75,7 +71,7 @@
                                         <input type="text" class="form-control" placeholder="yyyy-MM-dd" id="timeSelect">
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                             <button type="button" class="layui-btn">记一笔</button>
                         </div>
                     </div>
