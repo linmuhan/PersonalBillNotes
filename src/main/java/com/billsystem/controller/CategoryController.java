@@ -37,10 +37,22 @@ public class CategoryController {
         }
     }
 
+    //因为数据量大，所以就没有用delete的请求来操作
     @PostMapping("/deleteCategory")
     public Object deleteCategory(@RequestBody Category category){
         try{
             categoryService.deleteCategory(category);
+            return Result.success();
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.fail("error");
+        }
+    }
+
+    @PutMapping("/updateCategory")
+    public Object updateCategory(@RequestBody Category category){
+        try{
+            categoryService.updateCategory(category);
             return Result.success();
         }catch (Exception e){
             e.printStackTrace();

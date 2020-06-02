@@ -13,119 +13,158 @@
     <script th:src="@{/js/layui/layui.js}"></script>
 </head>
 <body>
-    <div id="workArea">
-        <div id='addInfo' style = "display : none">
-            <input placeholder="分类名称" v-model="addOfCategory.name" class="layui-input" style="margin: 30px auto; width: 200px" type="text">
-        </div>
-        <div id="deleteInfo" style="display: none">
-            <h3>您确认要删除该条分类吗？</h3>
-        </div>
-        <div id="nav">
-            <div class="layui-tab layui-tab-brief" lay-filter="demo" id="tab">
-                <ul class="layui-tab-title">
-                    <li  class="layui-this">消费一览</li>
-                    <li>记一笔</li>
-                    <li>消费分类</li>
-                    <li>消费账单</li>
-                    <li>账单设置</li>
-                </ul>
-                <span id="welcome">尊敬的用户{{user.name}},欢迎您！</span>
-                <span id="quit">退出登录</span>
-                <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
+<div id="workArea">
+    <div id='addInfo' style="display : none">
+        <input placeholder="分类名称" v-model="addOfCategory.name" class="layui-input"
+               style="margin: 30px auto; width: 200px" type="text">
+    </div>
+    <div id='updateInfo' style="display : none">
+        <input v-model="updateOfCategory.name" class="layui-input" style="margin: 30px auto; width: 200px" type="text">
+    </div>
+    <div id="deleteInfo" style="display: none">
+        <h3>您确认要删除该条分类吗？</h3>
+    </div>
+    <div id="nav">
+        <div class="layui-tab layui-tab-brief" lay-filter="demo" id="tab">
+            <ul class="layui-tab-title">
+                <li class="layui-this">消费一览</li>
+                <li>记一笔</li>
+                <li>消费分类</li>
+                <li>消费账单</li>
+                <li>账单设置</li>
+            </ul>
+            <span id="welcome">尊敬的用户{{user.name}},欢迎您！</span>
+            <span id="quit">退出登录</span>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
 
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="panel panel-info" id="panel2">
-                            <div class="panel-heading">人生得过且过,每一笔都不能记错！</div>
-                            <div class="panel-body">
-                                <input type="text" class="form-control" placeholder="花费（¥）">
-                                <input type="text" class="form-control" placeholder="分类">
-                                <input type="text" class="form-control" placeholder="备注">
-                                <input type="text" class="form-control" placeholder="yyyy-MM-dd" id="timeSelect">
-                                <button type="button" class="btn btn-primary">记一笔</button>
-                            </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="panel panel-info" id="panel2">
+                        <div class="panel-heading">人生得过且过,每一笔都不能记错！</div>
+                        <div class="panel-body">
+                            <form class="layui-form" action="">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">花费</label>
+                                    <div class="layui-input-block">
+                                        <input class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">分类</label>
+                                    <div class="layui-input-block">
+                                        <select name="city" lay-verify="required">
+                                            <option value=""></option>
+                                            <option value="0">北京</option>
+                                            <option value="1">上海</option>
+                                            <option value="2">广州</option>
+                                            <option value="3">深圳</option>
+                                            <option value="4">杭州</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">备注</label>
+                                    <div class="layui-input-block">
+                                        <input class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">日期</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="form-control" placeholder="yyyy-MM-dd" id="timeSelect">
+                                    </div>
+                                </div>
+                            </form>
+                            <button type="button" class="layui-btn">记一笔</button>
                         </div>
                     </div>
-                    <div class="layui-tab-item">
-                        <button type="button" class="layui-btn" @click="addLayer" style="margin-left: 91%; width: 130px;" id="addLayer">添加分类</button>
-                        <table class="table table-striped table-bordered table-hover  table-condensed">
-                            <thead>
-                            <th>分类名称</th>
-                            <th>消费次数</th>
-                            <th style="width: 140px">操作</th>
-                            </thead>
-                            <tbody>
-                            <tr v-for="category in categories">
-                                <td>{{category.name}}</td>
-                                <td>{{category.name}}</td>
-                                <td>
-                                    <div class="layui-btn-group">
-                                        <button type="button" class="layui-btn">编辑</button>
-                                        <button type="button" class="layui-btn layui-btn-danger" @click="deleteCategory(category.id)">删除</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="layui-tab-item">
-                            <ul class="layui-timeline" id="timeline">
-                                <li class="layui-timeline-item">
-                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">8月18日</h3>
-                                        <p>
-                                            layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
-                                            <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
-                                            <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="layui-timeline-item">
-                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">8月16日</h3>
-                                        <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
-                                        <ul>
-                                            <li>《登高》</li>
-                                            <li>《茅屋为秋风所破歌》</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="layui-timeline-item">
-                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">8月15日</h3>
-                                        <p>
-                                            中国人民抗日战争胜利72周年
-                                            <br>常常在想，尽管对这个国家有这样那样的抱怨，但我们的确生在了最好的时代
-                                            <br>铭记、感恩
-                                            <br>所有为中华民族浴血奋战的英雄将士
-                                            <br>永垂不朽
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="layui-timeline-item">
-                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <div class="layui-timeline-title">过去</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    <div class="layui-tab-item">
-                        <div class="panel panel-info" id="panel5">
-                            <div class="panel-heading">本月预算设置（¥）</div>
-                            <div class="panel-body">
-                                <input type="text" class="form-control" placeholder="本月预算">
-                                <button type="button" class="btn btn-primary">设置</button>
+                </div>
+                <div class="layui-tab-item">
+                    <button type="button" class="layui-btn" @click="addLayer" style="margin-left: 91%; width: 130px;"
+                            id="addLayer">添加分类
+                    </button>
+                    <table class="table table-striped table-bordered table-hover  table-condensed">
+                        <thead>
+                        <th>分类名称</th>
+                        <th>消费次数</th>
+                        <th style="width: 140px">操作</th>
+                        </thead>
+                        <tbody>
+                        <tr v-for="category in categories">
+                            <td>{{category.name}}</td>
+                            <td>{{category.name}}</td>
+                            <td>
+                                <div class="layui-btn-group">
+                                    <button type="button" class="layui-btn"
+                                            @click="updateCategory(category.id,category.name)">编辑
+                                    </button>
+                                    <button type="button" class="layui-btn layui-btn-danger"
+                                            @click="deleteCategory(category.id)">删除
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="layui-tab-item">
+                    <ul class="layui-timeline" id="timeline">
+                        <li class="layui-timeline-item">
+                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                            <div class="layui-timeline-content layui-text">
+                                <h3 class="layui-timeline-title">8月18日</h3>
+                                <p>
+                                    layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
+                                    <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
+                                    <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
+                                </p>
                             </div>
+                        </li>
+                        <li class="layui-timeline-item">
+                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                            <div class="layui-timeline-content layui-text">
+                                <h3 class="layui-timeline-title">8月16日</h3>
+                                <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
+                                <ul>
+                                    <li>《登高》</li>
+                                    <li>《茅屋为秋风所破歌》</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="layui-timeline-item">
+                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                            <div class="layui-timeline-content layui-text">
+                                <h3 class="layui-timeline-title">8月15日</h3>
+                                <p>
+                                    中国人民抗日战争胜利72周年
+                                    <br>常常在想，尽管对这个国家有这样那样的抱怨，但我们的确生在了最好的时代
+                                    <br>铭记、感恩
+                                    <br>所有为中华民族浴血奋战的英雄将士
+                                    <br>永垂不朽
+                                </p>
+                            </div>
+                        </li>
+                        <li class="layui-timeline-item">
+                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                            <div class="layui-timeline-content layui-text">
+                                <div class="layui-timeline-title">过去</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="panel panel-info" id="panel5">
+                        <div class="panel-heading">本月预算设置（¥）</div>
+                        <div class="panel-body">
+                            <input type="text" class="form-control" placeholder="本月预算">
+                            <button type="button" class="btn btn-primary">设置</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
