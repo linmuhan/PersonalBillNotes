@@ -19,5 +19,6 @@ public class Record {
     private String comment;
     private Date date;
     private int uid;
+    private String categoryName;
 
 }

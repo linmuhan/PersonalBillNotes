@@ -19,7 +19,7 @@ public interface RecordMapper {
 
     Record queryRecord(int id);
 
-    List<Record> queryRecordList(Record record);
+    List<Record> queryRecordList(int uid);
 
     List<Record> queryRecordToday(Record record);
 

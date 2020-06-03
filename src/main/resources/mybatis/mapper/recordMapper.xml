@@ -7,8 +7,8 @@
     <insert id="addRecord" parameterType="Record">
         insert into
         record
-        (id,spend,cid,comment,date,uid)
-        values (#{id},#{spend},#{cid},#{comment},#{date},#{uid})
+        (id,spend,cid,comment,date,uid,categoryName)
+        values (#{id},#{spend},#{cid},#{comment},#{date},#{uid},#{categoryName})
     </insert>
 
     <delete id="deleteRecord" parameterType="int">
@@ -20,16 +20,17 @@
         update record set
         spend = #{spend} ,
         comment = #{comment} ,
+        categoryName = #{categoryName},
         date = #{date}
         where id = #{id}
     </update>
 
     <select id="queryRecord" resultType="Record">
-        select * form record where id = #{id}
+        select * from record where id = #{id}
     </select>
 
     <select id="queryRecordList" resultType="Record">
-        select * form record where uid = #{uid}
+        select * from record where uid = #{uid}
     </select>
 
     <select id="queryRecordToday" resultType="Record">

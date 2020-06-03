@@ -29,7 +29,7 @@ div#panel5 div.panel-body input{
     display: inline-block;
 }
 div.layui-tab-item #timeline{
-    margin-left: 30%;
+    margin-left: 100px;
 }
 div#panel2{
     width: 40%;

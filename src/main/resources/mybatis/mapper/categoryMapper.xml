@@ -24,4 +24,8 @@
         update category set name = #{name} where id = #{id} and uid = #{uid};
     </update>
 
+    <select id="queryCategory" resultType="Category">
+        select * from category where id = #{id}
+    </select>
+
 </mapper>

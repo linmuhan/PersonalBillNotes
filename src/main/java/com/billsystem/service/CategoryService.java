@@ -25,6 +25,10 @@ public class CategoryService {
         return categoryMapper.queryCategoryByIdAndUid(category);
     }
 
+    public Category queryCategory(int id){
+        return categoryMapper.queryCategory(id);
+    }
+
     public List<Category> queryListByUid(int uid){
         return categoryMapper.queryListByUid(uid);
     }

@@ -12,7 +12,6 @@ import lombok.ToString;
 public class Config {
 
     private int id;
-    private String key_;
     private String value;
     private int uid;
 

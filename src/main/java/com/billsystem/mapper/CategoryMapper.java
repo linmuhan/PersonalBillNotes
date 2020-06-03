@@ -16,6 +16,8 @@ public interface CategoryMapper {
 
     int deleteCategory(Category category);
 
+    Category queryCategory(int id);
+
     Category queryCategoryByIdAndUid(Category category);
 
     int updateCategory(Category category);
