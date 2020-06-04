@@ -45,3 +45,21 @@ div#panel2 div.panel-body button{
     margin-top: 10px;
     margin-left: 45%;
 }
+div.costConfig{
+    margin-top: 100px;
+    margin-left: 250px;
+    width: 200px;
+}
+div.configCost{
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 200px;
+    display: inline-block;
+}
+div#costDoughnut{
+    width:600px;
+    height: 400px;
+    position: absolute;
+    top: 150px;
+    left: 500px;
+}

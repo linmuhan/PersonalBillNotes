@@ -35,10 +35,36 @@
                 <li>账单设置</li>
             </ul>
             <span id="welcome">尊敬的用户{{user.name}},欢迎您！</span>
-            <span id="quit">退出登录</span>
+            <span id="quit" @click="quit">退出登录</span>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-
+                    <div class="costConfig">
+                        <p style="color: silver; font-size: 18px;">本月消费<P>
+                        <p style="font-weight: bold; font-size: 32px; color: #58ddff">¥{{costChart.monthCost}}</p>
+                    </div>
+                    <div class="costConfig">
+                        <P style="color: silver; font-size: 18px;">今日消费</P>
+                        <p style="font-weight: bold; font-size: 32px; color: #58ddff">¥{{costChart.todayCost}}</p>
+                    </div>
+                    <div class="costConfig">
+                        <p style="color: silver; font-size: 18px;">本月剩余</p>
+                        <p style="font-weight: bold; font-size: 32px; color: #58ddff">¥{{costChart.surplusCost}}</p>
+                    </div>
+                    <div id="costDoughnut">
+                        <canvas id="doughnutCost"></canvas>
+                    </div>
+                    <div class="configCost" style="margin-left: 500px">
+                        <p style="color: silver; font-size: 18px;">日均消费<P>
+                        <p style="font-weight: bold; font-size: 32px; color: #58ddff">¥{{costChart.dailyAvg}}</p>
+                    </div>
+                    <div class="configCost">
+                        <P style="color: silver; font-size: 18px;">日均可用</P>
+                        <p style="font-weight: bold; font-size: 32px; color: #58ddff">¥{{costChart.dailyUse}}</p>
+                    </div>
+                    <div class="configCost">
+                        <p style="color: silver; font-size: 18px;">距离月末</p>
+                        <p style="font-weight: bold; font-size: 32px; color: #58ddff">{{costChart.surplusDay}}天</p>
+                    </div>
                 </div>
                 <div class="layui-tab-item">
                     <div class="panel panel-info" id="panel2">
@@ -141,8 +167,8 @@
                     <div class="panel panel-info" id="panel5">
                         <div class="panel-heading">本月预算设置（¥）</div>
                         <div class="panel-body">
-                            <input type="text" class="form-control" placeholder="本月预算">
-                            <button type="button" class="btn btn-primary">设置</button>
+                            <input type="text" class="form-control" placeholder="本月预算" v-model="config.value">
+                            <button type="button" class="btn btn-primary" @click="setConfig">设置</button>
                         </div>
                     </div>
                 </div>

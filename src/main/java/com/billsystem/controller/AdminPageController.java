@@ -12,6 +12,9 @@ public class AdminPageController {
         return "login";
     }
 
+    @GetMapping("/index")
+    public String index(){return "login";}
+
     @GetMapping("/register")
     public String toRegister() { return "register"; }
 
