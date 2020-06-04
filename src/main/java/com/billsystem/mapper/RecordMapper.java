@@ -2,6 +2,7 @@ package com.billsystem.mapper;
 
 import com.billsystem.pojo.Record;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
@@ -23,5 +24,5 @@ public interface RecordMapper {
 
     List<Record> queryRecordToday(Record record);
 
-    List<Record> queryRecordThisMonth(int uid,Date start,Date end);
+    List<Record> queryRecordThisMonth(@Param("start") Date start, @Param("end") Date end,@Param("uid") int uid);
 }

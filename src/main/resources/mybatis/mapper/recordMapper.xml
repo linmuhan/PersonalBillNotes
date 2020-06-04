@@ -30,7 +30,7 @@
     </select>
 
     <select id="queryRecordList" resultType="Record">
-        select * from record where uid = #{uid}
+        select * from record where uid = #{uid} order by date
     </select>
 
     <select id="queryRecordToday" resultType="Record">
@@ -39,7 +39,7 @@
 
     <select id="queryRecordThisMonth" resultType="Record">
         select * from
-        (select * from record where date >= #{start} and date &lt;= #{end})
+        (select * from record where date >= #{start} and date &lt;= #{end}) as records
         where uid = #{uid}
     </select>
 

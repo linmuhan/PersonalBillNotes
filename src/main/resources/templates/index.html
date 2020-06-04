@@ -106,8 +106,11 @@
                     </table>
                 </div>
                 <div class="layui-tab-item">
-                    <div style="width:600px; margin-left: 100px; margin-top: 10px; display: inline-block">
+                    <div style="width:600px; margin-left: 80px; margin-top: 10px; display: inline-block; position: absolute">
                         <canvas id="myChart" ></canvas>
+                    </div>
+                    <div style="width:600px; margin-top: 350px; margin-left: 80px;display: inline-block; position: absolute" >
+                        <canvas id="chartPie" ></canvas>
                     </div>
                     <div style="display: inline-block">
                     <ul class="layui-timeline" id="timeline">
@@ -129,6 +132,9 @@
                             </div>
                         </li>
                     </ul>
+                    </div>
+                    <div style="position: fixed; right: 50px; top: 600px;">
+                        <img th:src="@{/img/top.png}" @click="toTop">
                     </div>
                 </div>
                 <div class="layui-tab-item">

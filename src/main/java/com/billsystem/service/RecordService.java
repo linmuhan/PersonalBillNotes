@@ -46,8 +46,8 @@ public class RecordService {
         return recordMapper.queryRecordToday(record);
     }
 
-    public List<Record> queryRecordThisMonth(int uid, Date start,Date end){
-        return recordMapper.queryRecordThisMonth(uid,start,end);
+    public List<Record> queryRecordThisMonth(Date start,Date end,int uid){
+        return recordMapper.queryRecordThisMonth(start,end,uid);
     }
 
 }
