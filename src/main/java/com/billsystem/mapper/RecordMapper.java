@@ -25,4 +25,6 @@ public interface RecordMapper {
     List<Record> queryRecordToday(Record record);
 
     List<Record> queryRecordThisMonth(@Param("start") Date start, @Param("end") Date end,@Param("uid") int uid);
+
+    int queryCountOfCategory(@Param("cid") int cid,@Param("uid") int uid);
 }

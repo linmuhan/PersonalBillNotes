@@ -50,4 +50,8 @@ public class RecordService {
         return recordMapper.queryRecordThisMonth(start,end,uid);
     }
 
+    public int queryCountOfCategory(int cid,int uid){
+        return recordMapper.queryCountOfCategory(cid,uid);
+    }
+
 }

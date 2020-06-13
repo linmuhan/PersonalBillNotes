@@ -3,10 +3,12 @@ package com.billsystem.controller;
 
 import com.billsystem.pojo.Category;
 import com.billsystem.service.CategoryService;
+import com.billsystem.service.RecordService;
 import com.billsystem.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,6 +16,8 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private RecordService recordService;
 
     @PostMapping("/addCategory")
     public Object addCategory(@RequestBody Category category){
@@ -30,8 +34,16 @@ public class CategoryController {
     @GetMapping("/listCategory/{uid}")
     public Object listCategory(@PathVariable int uid){
         List<Category> lists = categoryService.queryListByUid(uid);
+        List<Category> res = new ArrayList<>();
+        for(int i = 0; i < lists.size(); i++){
+            Category temp = lists.get(i);
+            int cid = temp.getId();
+            int count = recordService.queryCountOfCategory(cid,uid);
+            temp.setCount(count);
+            res.add(temp);
+        }
         try{
-            return Result.success(lists);
+            return Result.success(res);
         }catch (Exception e){
             return Result.fail("error");
         }

@@ -43,4 +43,8 @@
         where uid = #{uid}
     </select>
 
+    <select id="queryCountOfCategory" resultType="int">
+        select count(*) from record where uid = #{uid} and cid = #{cid};
+    </select>
+
 </mapper>
